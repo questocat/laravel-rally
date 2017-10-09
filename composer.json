@@ -1,0 +1,42 @@
+{
+    "name": "emanci/laravel-rally",
+    "description": "A followers system for laravel 5",
+    "keywords": ["follow", "unfollow"],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [{
+        "name": "emanci",
+        "email": "zhengchaopu@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "laravel/laravel": "5.*",
+        "mockery/mockery": "~0.9",
+        "phpunit/phpunit": "~4.0|~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Emanci\\Rally\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Emanci\\Rally\\RallyServiceProvider"
+            ]
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
