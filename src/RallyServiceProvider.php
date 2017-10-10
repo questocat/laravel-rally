@@ -41,8 +41,8 @@ class RallyServiceProvider extends ServiceProvider
     protected function setupMigrations()
     {
         $timestamp = date('Y_m_d_His');
-        $migrationsSource = realpath(__DIR__.'/../database/migrations/create_followers_table.php');
-        $migrationsTarget = database_path("/migrations/{$timestamp}_create_followers_table.php");
+        $migrationsSource = realpath(__DIR__.'/../database/migrations/create_followables_table.php');
+        $migrationsTarget = database_path("/migrations/{$timestamp}_create_followables_table.php");
         $this->publishes([
             $migrationsSource => $migrationsTarget,
         ], 'migrations');

@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'followers_table' => 'followers',
+    'followable_table' => 'followables',
+    'follower_prefix' => 'follower',
+    'followable_prefix' => 'followable',
 ];

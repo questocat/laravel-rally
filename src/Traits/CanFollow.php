@@ -2,7 +2,6 @@
 
 namespace Emanci\Rally\Traits;
 
-use Emanci\Rally\Models\Follower;
 use Illuminate\Database\Eloquent\Model;
 
 trait CanFollow
@@ -10,64 +9,68 @@ trait CanFollow
     /**
      * Follow a followable entity.
      *
-     * @param \Illuminate\Database\Eloquent\Model $followable
+     * @param int|array|\Illuminate\Database\Eloquent\Model $followable
+     * @param string                                        $className
      *
-     * @return \Emanci\Rally\Models\Follower|false
+     * @return array
      */
-    public function follow(Model $followable)
+    public function follow($followable, $className = __CLASS__)
     {
-        if ($this->isFollowing($followable)) {
-            return false;
-        }
+        $followable = $this->parseFollowable($followable);
 
-        $followable = (new Follower())->fillFollowable($followable);
-
-        return $this->following()->save($followable);
+        return $this->following($className)->sync($followable, false);
     }
 
     /**
      * Unfollow a followable entity.
      *
-     * @param \Illuminate\Database\Eloquent\Model $followable
+     * @param int|array|\Illuminate\Database\Eloquent\Model $followable
+     * @param string                                        $className
      *
      * @return bool|null
      */
-    public function unfollow(Model $followable)
+    public function unfollow($followable, $className = __CLASS__)
     {
-        return Follower::following($followable)->followedBy($this)->delete();
+        $followable = $this->parseFollowable($followable);
+
+        return $this->following($className)->detach($followable);
     }
 
     /**
      * Check if entity is following given entity.
      *
-     * @param \Illuminate\Database\Eloquent\Model $followable
+     * @param int|\Illuminate\Database\Eloquent\Model $followable
      *
      * @return bool
      */
-    public function isFollowing(Model $followable)
+    public function isFollowing($followable)
     {
-        return $this->findFollowing($followable)->exists();
-    }
-
-    /**
-     * Returns a following entity.
-     *
-     * @param \Illuminate\Database\Eloquent\Model $followable
-     *
-     * @return \Emanci\Rally\Models\Follower
-     */
-    public function findFollowing(Model $followable)
-    {
-        return $this->following()->following($followable);
+        return $this->following->contains($followable);
     }
 
     /**
      * Return entity followings.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * @param string $className
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
-    public function following()
+    public function following($className = __CLASS__)
     {
-        return $this->morphMany(Follower::class, 'follower');
+        return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), 'follower_id')->withTimestamps();
+    }
+
+    /**
+     * @param int|array|\Illuminate\Database\Eloquent\Model $followable
+     *
+     * @return array|\Illuminate\Database\Eloquent\Model
+     */
+    protected function parseFollowable($followable)
+    {
+        if ($followable instanceof Model) {
+            return $followable;
+        }
+
+        return (array) $followable;
     }
 }
