@@ -23,6 +23,6 @@ trait CanBeFollowed
      */
     public function followers()
     {
-        return $this->morphToMany(config('rally.follower_model'), config('rally.followable_prefix'), config('rally.followers_table'), null, config('rally.follower_prefix').'_id');
+        return $this->morphToMany(config('rally.follower_model'), config('rally.followable_prefix'), config('rally.followers_table'), config('rally.follower_prefix').'_id', config('rally.followable_prefix').'_id');
     }
 }

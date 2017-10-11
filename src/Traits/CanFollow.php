@@ -49,7 +49,7 @@ trait CanFollow
     }
 
     /**
-     * Toggle follow an item or items.
+     * Toggle follow a followable or followables.
      *
      * @param int|array|\Illuminate\Database\Eloquent\Model $followable
      * @param string                                        $className
@@ -72,7 +72,7 @@ trait CanFollow
      */
     public function following($className = __CLASS__)
     {
-        return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), config('rally.follower_prefix').'_id')->withTimestamps();
+        return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), config('rally.followable_prefix').'_id', config('rally.follower_prefix').'_id')->withTimestamps();
     }
 
     /**
