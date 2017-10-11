@@ -5,4 +5,16 @@ namespace Emanci\Rally\Traits;
 trait Followable
 {
     use CanFollow,CanBeFollowed;
+
+    /**
+     * Check if it is mutual follow.
+     *
+     *@param int|\Illuminate\Database\Eloquent\Model $followable
+     *
+     * @return bool
+     */
+    public function isMutualFollow($followable)
+    {
+        return $this->isFollowing($followable) && $this->isFollowedBy($followable);
+    }
 }

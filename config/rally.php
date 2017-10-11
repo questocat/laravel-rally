@@ -2,6 +2,7 @@
 
 return [
     'followable_table' => 'followables',
-    'follower_prefix' => 'follower',
     'followable_prefix' => 'followable',
+    'follower_prefix' => 'follower',
+    'follower_model' => 'App\User',
 ];

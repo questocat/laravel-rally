@@ -49,6 +49,21 @@ trait CanFollow
     }
 
     /**
+     * Toggle follow an item or items.
+     *
+     * @param int|array|\Illuminate\Database\Eloquent\Model $followable
+     * @param string                                        $className
+     *
+     * @return array
+     */
+    public function toggleFollow($followable, $className = __CLASS__)
+    {
+        $followable = $this->parseFollowable($followable);
+
+        return $this->following($className)->toggle($followable);
+    }
+
+    /**
      * Return entity followings.
      *
      * @param string $className
@@ -57,7 +72,7 @@ trait CanFollow
      */
     public function following($className = __CLASS__)
     {
-        return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), 'follower_id')->withTimestamps();
+        return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), config('rally.follower_prefix').'_id')->withTimestamps();
     }
 
     /**
