@@ -40,12 +40,13 @@ trait CanFollow
      * Check if entity is following given entity.
      *
      * @param int|\Illuminate\Database\Eloquent\Model $followable
+     * @param string                                  $className
      *
      * @return bool
      */
-    public function isFollowing($followable)
+    public function isFollowing($followable, $className = __CLASS__)
     {
-        return $this->following->contains($followable);
+        return $this->following($className)->get()->contains($followable);
     }
 
     /**
