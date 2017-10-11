@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of laravel-rally package.
+ *
+ * (c) emanci <zhengchaopu@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Emanci\Rally;
 
 use Illuminate\Support\ServiceProvider;
@@ -20,6 +29,13 @@ class RallyServiceProvider extends ServiceProvider
     {
         $this->setupConfig();
         $this->setupMigrations();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function register()
+    {
     }
 
     /**
@@ -46,12 +62,5 @@ class RallyServiceProvider extends ServiceProvider
         $this->publishes([
             $migrationsSource => $migrationsTarget,
         ], 'migrations');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function register()
-    {
     }
 }
