@@ -2,12 +2,17 @@
 
 A followers system for laravel 5, Trait for Laravel Eloquent models to allow easy implementation of a "follow" or "like" or "favorite" or "remember" or "subscribe" feature.
 
+[![StyleCI](https://styleci.io/repos/105341654/shield?branch=master)](https://styleci.io/repos/105341654)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/emanci/laravel-rally/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/emanci/laravel-rally/?branch=master)
+[![Build Status](https://travis-ci.org/emanci/laravel-rally.svg?branch=master)](https://travis-ci.org/emanci/laravel-rally)
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://packagist.org/packages/emanci/laravel-rally)
+
 ## Installation
 
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
-```php
-composer require emanci/laravel-rally
+```bash
+$ composer require emanci/laravel-rally
 ```
 
 First add service providers into the config/app.php
@@ -18,14 +23,14 @@ First add service providers into the config/app.php
 
 Publish the migrations
 
-```php
-php artisan vendor:publish --provider="Emanci\Rally\RallyServiceProvider" --tag="migrations"
+```bash
+$ php artisan vendor:publish --provider="Emanci\Rally\RallyServiceProvider" --tag="migrations"
 ```
 
 Publish the config
 
-```php
-php artisan vendor:publish --provider="Emanci\Rally\RallyServiceProvider" --tag="config"
+```bash
+$ php artisan vendor:publish --provider="Emanci\Rally\RallyServiceProvider" --tag="config"
 ```
 
 ## Setup the model
@@ -42,6 +47,7 @@ class User extends Model
 ```
 
 Add CanBeFollowed Trait to your Post model or Video model and more.
+
 ```php
 use Emanci\Rally\Traits\CanBeFollowed
 
