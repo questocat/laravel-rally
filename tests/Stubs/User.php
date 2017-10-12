@@ -12,12 +12,11 @@
 namespace Tests\Stubs;
 
 use Emanci\Rally\Traits\Followable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use Notifiable, Followable;
+    use Followable;
 
     /**
      * The attributes that are mass assignable.
