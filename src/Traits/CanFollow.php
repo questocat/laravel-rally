@@ -11,8 +11,6 @@
 
 namespace Emanci\Rally\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-
 trait CanFollow
 {
     /**
@@ -25,8 +23,6 @@ trait CanFollow
      */
     public function follow($followable, $className = __CLASS__)
     {
-        $followable = $this->parseFollowable($followable);
-
         return $this->following($className)->sync($followable, false);
     }
 
@@ -40,8 +36,6 @@ trait CanFollow
      */
     public function unfollow($followable, $className = __CLASS__)
     {
-        $followable = $this->parseFollowable($followable);
-
         return $this->following($className)->detach($followable);
     }
 
@@ -68,8 +62,6 @@ trait CanFollow
      */
     public function toggleFollow($followable, $className = __CLASS__)
     {
-        $followable = $this->parseFollowable($followable);
-
         return $this->following($className)->toggle($followable);
     }
 
@@ -83,19 +75,5 @@ trait CanFollow
     public function following($className = __CLASS__)
     {
         return $this->morphedByMany($className, config('rally.followable_prefix'), config('rally.followers_table'), config('rally.follower_prefix').'_id', config('rally.followable_prefix').'_id')->withTimestamps();
-    }
-
-    /**
-     * @param int|array|\Illuminate\Database\Eloquent\Model $followable
-     *
-     * @return int|array
-     */
-    protected function parseFollowable($followable)
-    {
-        if ($followable instanceof Model) {
-            return $followable->getKey();
-        }
-
-        return $followable;
     }
 }
