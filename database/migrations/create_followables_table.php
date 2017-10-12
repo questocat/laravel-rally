@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of laravel-rally package.
+ * This file is part of emanci/laravel-rally package.
  *
  * (c) emanci <zhengchaopu@gmail.com>
  *
