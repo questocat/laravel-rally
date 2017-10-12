@@ -88,14 +88,14 @@ trait CanFollow
     /**
      * @param int|array|\Illuminate\Database\Eloquent\Model $followable
      *
-     * @return array|\Illuminate\Database\Eloquent\Model
+     * @return int|array
      */
     protected function parseFollowable($followable)
     {
         if ($followable instanceof Model) {
-            return $followable;
+            return $followable->getKey();
         }
 
-        return (array) $followable;
+        return $followable;
     }
 }
