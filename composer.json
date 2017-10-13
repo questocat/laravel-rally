@@ -1,7 +1,7 @@
 {
     "name": "emanci/laravel-rally",
     "description": "A followers system for laravel 5",
-    "keywords": ["follow", "unfollow"],
+    "keywords": ["follow", "like", "favorite", "remember", "subscribe"],
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [{
