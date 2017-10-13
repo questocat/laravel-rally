@@ -16,6 +16,11 @@ return [
     'followable_table' => 'followables',
 
     /*
+     * Table name of follower table.
+     */
+    'follower_table' => 'users',
+
+    /*
      * Prefix of many-to-many Poly relation fields.
      */
     'followable_prefix' => 'followable',

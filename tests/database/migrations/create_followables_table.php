@@ -21,9 +21,14 @@ class CreateFollowablesTable extends Migration
     {
         Schema::create(config('rally.followers_table', 'followables'), function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('follower_id');
+            $table->integer('follower_id')->unsigned()->index();
             $table->morphs('followable');
             $table->timestamps();
+            $table->foreign('follower_id')
+                  ->references('id')
+                  ->on(config('rally.follower_table', 'users'))
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
         });
     }
 
