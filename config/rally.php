@@ -10,8 +10,23 @@
  */
 
 return [
+    /*
+     * Table name of followable relations.
+     */
     'followable_table' => 'followables',
+
+    /*
+     * Prefix of many-to-many Poly relation fields.
+     */
     'followable_prefix' => 'followable',
+
+    /*
+     * Prefix of follower field
+     */
     'follower_prefix' => 'follower',
+
+    /*
+     * Model class name of follower.
+     */
     'follower_model' => 'App\User',
 ];
