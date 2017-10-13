@@ -75,13 +75,14 @@ class User extends Model
 Follow and Unfollow users
 
 ```php
-$user->follow(1);
-$user->unfollow(1);
-
-$user->follow([1, 2]);
-$user->unfollow([1, 2]);
-
+$user->follow(1);  // App\User:class
+$user->follow($user1);
+$user->follow([1, 3]);
 $user->follow(1, Post::class);
+
+$user->unfollow(1);  // App\User:class
+$user->unfollow($user1);
+$user->unfollow([1, 2]);
 $user->unfollow(1, Post::class);
 ```
 
@@ -89,8 +90,7 @@ Check if being followed by someone
 
 ```php
 $user->isFollowing(1);
-$user->isFollowing($otherUser);
-
+$user->isFollowing($user2);
 $user->isFollowing(2, Post::class);
 $user->isFollowing($post, Post::class);
 ```
@@ -98,6 +98,8 @@ $user->isFollowing($post, Post::class);
 Toggle follow
 
 ```php
+$user->toggleFollow(1);
+$user->toggleFollow($user2);
 $user->toggleFollow([2, 4]);
 $user->toggleFollow([2, 4], Post::class);
 ```
@@ -116,7 +118,7 @@ Check if following by someone
 
 ```php
 $user->isFollowedBy(3);
-$user->isFollowedBy($otherUser);
+$user->isFollowedBy($user2);
 ```
 
 Followers
@@ -133,7 +135,7 @@ Check if it is mutual follow
 
 ```php
 $user->isMutualFollow(1);
-$user->isMutualFollow($otherUser);
+$user->isMutualFollow($user2);
 ```
 
 ## Inspiration
