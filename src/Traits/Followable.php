@@ -13,7 +13,7 @@ namespace Emanci\Rally\Traits;
 
 trait Followable
 {
-    use CanFollow,CanBeFollowed;
+    use CanFollow, CanBeFollowed;
 
     /**
      * Check if it is mutual follow.
