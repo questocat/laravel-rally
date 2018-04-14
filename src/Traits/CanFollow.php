@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of emanci/laravel-rally package.
+ * This file is part of questocat/laravel-rally package.
  *
  * (c) emanci <zhengchaopu@gmail.com>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Emanci\Rally\Traits;
+namespace Questocat\Rally\Traits;
 
 trait CanFollow
 {

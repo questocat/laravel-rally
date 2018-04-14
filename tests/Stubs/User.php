@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of emanci/laravel-rally package.
+ * This file is part of questocat/laravel-rally package.
  *
  * (c) emanci <zhengchaopu@gmail.com>
  *
@@ -11,7 +11,7 @@
 
 namespace Tests\Stubs;
 
-use Emanci\Rally\Traits\Followable;
+use Questocat\Rally\Traits\Followable;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
