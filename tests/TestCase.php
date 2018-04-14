@@ -3,7 +3,7 @@
 /*
  * This file is part of questocat/laravel-rally package.
  *
- * (c) emanci <zhengchaopu@gmail.com>
+ * (c) questocat <zhengchaopu@gmail.com>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -73,8 +73,8 @@ class TestCase extends BaseTestCase
     public function seedDatabase()
     {
         User::create([
-            'name' => 'Emanci',
-            'email' => 'Emanci@qq.com',
+            'name' => 'questocat',
+            'email' => 'questocat@qq.com',
             'password' => bcrypt('secret'),
         ]);
         User::create([
