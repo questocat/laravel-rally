@@ -1,6 +1,6 @@
 <?php
 $header = <<<'EOF'
-This file is part of emanci/laravel-rally package.
+This file is part of questocat/laravel-rally package.
 
 (c) emanci <zhengchaopu@gmail.com>
 

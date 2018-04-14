@@ -1,11 +1,11 @@
 {
-    "name": "emanci/laravel-rally",
+    "name": "questocat/laravel-rally",
     "description": "A followers system for laravel 5",
     "keywords": ["follow", "like", "favorite", "remember", "subscribe"],
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [{
-        "name": "emanci",
+        "name": "questocat",
         "email": "zhengchaopu@gmail.com"
     }],
     "require": {
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Emanci\\Rally\\": "src/"
+            "Questocat\\Rally\\": "src/"
         }
     },
     "autoload-dev": {
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Emanci\\Rally\\RallyServiceProvider"
+                "Questocat\\Rally\\RallyServiceProvider"
             ]
         }
     },
