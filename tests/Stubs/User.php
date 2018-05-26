@@ -11,8 +11,8 @@
 
 namespace Tests\Stubs;
 
-use Questocat\Rally\Traits\Followable;
 use Illuminate\Database\Eloquent\Model;
+use Questocat\Rally\Traits\Followable;
 
 class User extends Model
 {
